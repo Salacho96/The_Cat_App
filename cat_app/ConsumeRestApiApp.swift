@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-func fetchResultsFromApi() {
+/*func fetchResultsFromApi() {
         struct MyGitHub: Codable {
             
             let breedName: String?
@@ -42,4 +42,4 @@ func fetchResultsFromApi() {
                 print("Err", err)
             }
             }.resume()
-    }
+    }*/
