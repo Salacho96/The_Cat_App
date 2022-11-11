@@ -14,6 +14,8 @@
 		BB8C7719291DF31600ECCE91 /* cat_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C7718291DF31600ECCE91 /* cat_appTests.swift */; };
 		BB8C7723291DF31600ECCE91 /* cat_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C7722291DF31600ECCE91 /* cat_appUITests.swift */; };
 		BB8C7725291DF31600ECCE91 /* cat_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C7724291DF31600ECCE91 /* cat_appUITestsLaunchTests.swift */; };
+		BB8C7732291DF9C600ECCE91 /* catapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C7731291DF9C600ECCE91 /* catapi.swift */; };
+		BB8C7734291DFA5D00ECCE91 /* ConsumeRestApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C7733291DFA5D00ECCE91 /* ConsumeRestApiApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		BB8C771E291DF31600ECCE91 /* cat_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cat_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8C7722291DF31600ECCE91 /* cat_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cat_appUITests.swift; sourceTree = "<group>"; };
 		BB8C7724291DF31600ECCE91 /* cat_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cat_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB8C7731291DF9C600ECCE91 /* catapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catapi.swift; sourceTree = "<group>"; };
+		BB8C7733291DFA5D00ECCE91 /* ConsumeRestApiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumeRestApiApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +98,12 @@
 		BB8C7706291DF31300ECCE91 /* cat_app */ = {
 			isa = PBXGroup;
 			children = (
+				BB8C7733291DFA5D00ECCE91 /* ConsumeRestApiApp.swift */,
 				BB8C7707291DF31300ECCE91 /* cat_appApp.swift */,
 				BB8C7709291DF31300ECCE91 /* ContentView.swift */,
 				BB8C770B291DF31600ECCE91 /* Assets.xcassets */,
 				BB8C770D291DF31600ECCE91 /* Preview Content */,
+				BB8C7731291DF9C600ECCE91 /* catapi.swift */,
 			);
 			path = cat_app;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8C770A291DF31300ECCE91 /* ContentView.swift in Sources */,
+				BB8C7734291DFA5D00ECCE91 /* ConsumeRestApiApp.swift in Sources */,
 				BB8C7708291DF31300ECCE91 /* cat_appApp.swift in Sources */,
+				BB8C7732291DF9C600ECCE91 /* catapi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

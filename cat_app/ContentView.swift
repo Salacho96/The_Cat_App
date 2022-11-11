@@ -1,21 +1,51 @@
-//
-//  ContentView.swift
-//  cat_app
-//
-//  Created by Andres Salazar on 10/11/22.
-//
-
+//the cat app
+//Andres Felipe Salazar Rojas
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        ScrollView{
+            Text("CatBreeders")
+                .font(.largeTitle)
+            Spacer()
+            Spacer()
+            VStack {
+                HStack{
+                    Spacer()
+                    Text("Nombre")
+                    Spacer()
+                    Text("Raza")
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                }
+                Spacer()
+                Spacer()
+                Image(systemName: "cat")
+                
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+            }
+            HStack{
+                Spacer()
+                Text("Pais de Origen")
+                Spacer()
+                Text("Inteligencia")
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+            }
+            
+            .padding()
         }
-        .padding()
+       
     }
 }
 
