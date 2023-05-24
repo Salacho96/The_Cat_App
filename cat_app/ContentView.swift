@@ -15,38 +15,50 @@ struct Cat: Hashable, Codable{
     let description: String
 }
 
-class ViewModel: ObservableObject{
-    func fetch (){
-        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else {
+class ViewModel: ObservableObject {
+    @Published var cats: [Cat] = []
+    func fetch(){
+        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds")
+        else {
             return
         }
-        let task = URLSession.shared.dataTask(with: url) {data,
-            ,error in
-            guard let data = data, error == nil else{
+        let task = URLSession.shared.dataTask(with: url){[weak self] data, _,
+            error in
+            guard let data = data, error == nil else {
                 return
             }
+            //convert to json
             do{
-                let courses = try JSONDecoder().decode([Cat].self,
-                    from: data)
+                let cats = try JSONDecoder().decode([Cat].self,
+                from: data)
+                DispatchQueue.main.async{
+                    self?.cats=cats
+                }
+                
             }
             catch{
                 print(error)
             }
-            
         }
+        task.resume()
     }
 }
 
 
 struct ContentView: View {
-    
+    @StateObject var viewModel = ViewModel()
     var body: some View {
-        
         NavigationView{
             List{
-                
+                ForEach(viewModel.cats, id: \.self){
+                    Cat in HStack{
+                        Text(Cat.name)
+                    }.padding(3)
+                }
             }.navigationTitle("The Cat API")
+                .onAppear{
+                    viewModel.fetch()
+                }
         }
-        
     }
 }
