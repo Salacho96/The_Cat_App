@@ -1,88 +1,52 @@
 //the cat app
 //Andres Felipe Salazar Rojas
+//https://www.youtube.com/watch?v=CimY_Sr3gWw
 import SwiftUI
+import Combine
 
+
+struct Cat: Hashable, Codable{
+    struct Weight: Codable {
+        let imperial: String
+        let metric: String
+    }
+    let name: String
+    let id: String
+    let description: String
+}
+
+class ViewModel: ObservableObject{
+    func fetch (){
+        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else {
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) {data,
+            ,error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+                let courses = try JSONDecoder().decode([Cat].self,
+                    from: data)
+            }
+            catch{
+                print(error)
+            }
+            
+        }
+    }
+}
 
 
 struct ContentView: View {
     
-    @State private var quoteData: QuoteData?
-    
-    //let _ = self.print(QuoteData)
-    
     var body: some View {
-       
-        ScrollView{
-            Text("CatBreeders")
-                .font(.largeTitle)
-            Spacer()
-            Spacer()
-            VStack {
-                HStack{
-                    Spacer()
-                    Text("Nombre")
-                    Spacer()
-                    Text("Raza")
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                }
-                Spacer()
-                Spacer()
-                Image(systemName: "globe")
+        
+        NavigationView{
+            List{
                 
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-            }
-            HStack{
-                Spacer()
-                Text("Pais de Origen")
-                Spacer()
-                Text("Inteligencia")
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                
-            }
-            Text(quoteData?.id ?? "")
-            
-            .padding()
+            }.navigationTitle("The Cat API")
         }
         
-    }
-    
-    //call api
-    private func loadData(){
-        guard let url = URL(string:" https://api.thecatapi.com/v1/breeds")else{
-            return
-        }
-        URLSession.shared.dataTask(with: url){
-            data, response, error in guard let data = data else {return}
-            if let decodedData = try? JSONDecoder().decode(QuoteData.self, from: data){
-                DispatchQueue.main.async {
-                    self.quoteData=decodedData
-                }
-            }
-        }.resume()
-    }
-    
-}
-    
-
-
-struct QuoteData: Decodable{
-    var id: String
-    var breedName: String
-    var origin: String
-    var affectionLevel: Int
-    var Intelligence: Int
-    var ImageUrl: String
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
