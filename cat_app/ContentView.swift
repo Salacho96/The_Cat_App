@@ -4,7 +4,7 @@
 import SwiftUI
 import Combine
 
-
+//Snippet to declare the data we are going to get from the api
 struct Cat: Hashable, Codable{
     struct Weight: Codable {
         let imperial: String
@@ -15,6 +15,7 @@ struct Cat: Hashable, Codable{
     let description: String
 }
 
+//Snippet to fetch the api information
 class ViewModel: ObservableObject {
     @Published var cats: [Cat] = []
     func fetch(){
@@ -44,7 +45,7 @@ class ViewModel: ObservableObject {
     }
 }
 
-
+//Snippet to display the cat_api content in the view ContentView
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     var body: some View {
@@ -63,6 +64,7 @@ struct ContentView: View {
     }
 }
 
+//Snippet for automatic preview ios device
 struct ContentView_Previews: PreviewProvider{
     static var previews: some View{
         ContentView()
