@@ -54,7 +54,7 @@ struct ListView: View {
     @State private var isShowingContentView = false
         
     var body: some View {
-        NavigationView { 
+        NavigationView {
             List {
                 ForEach(viewModel.cats, id: \.self) { cat in HStack {
                     Text(cat.name)
