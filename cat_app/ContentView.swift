@@ -7,16 +7,20 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ListView()) {
+                NavigationLink(
+                    destination: ListView()
+                        .navigationBarBackButtonHidden(true) ){
                     Text("Tap to Go Check the Cats")
                 }
             }
+            
             .navigationTitle("The Cat Api")
         }
     }
 }
 
 //Snippet for automatic preview ios device
+
 struct ContentView_Previews: PreviewProvider{
     static var previews: some View{
         ContentView()

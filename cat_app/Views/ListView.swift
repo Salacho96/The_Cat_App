@@ -81,6 +81,8 @@ struct ListView: View {
     }
 }
 
+//Snippet for automatic preview ios device
+
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
